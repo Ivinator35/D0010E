@@ -3,6 +3,7 @@ package labb3.kontroll;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import D0010E.labb3.modell.Väderstreck;
 import labb3.modell.Nivå;
 
 public class Tangentbordslyssnare implements KeyListener {
@@ -23,6 +24,24 @@ public class Tangentbordslyssnare implements KeyListener {
 		// d betyda "hoppa åt ÖSTER",
 		// s betyda "hoppa åt SÖDER" och
 		// a betyda "hoppa åt VÄSTER".
+
+		switch (e.getKeyChar()){
+			case 'w':
+				enNivå.hoppaÅt(Väderstreck.NORR);
+				break;
+			case 'd':
+				enNivå.hoppaÅt(Väderstreck.ÖSTER);
+				break;
+			case 's':
+				enNivå.hoppaÅt(Väderstreck.SÖDER);
+				break;
+			case 'a':
+				enNivå.hoppaÅt(Väderstreck.VÄSTER);
+				break;
+			default:
+				break;
+		}
+
 	}
 
 	@Override
