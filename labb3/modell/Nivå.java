@@ -1,5 +1,7 @@
 package labb3.modell;
 
+import D0010E.labb3.modell.Väderstreck;
+
 import java.util.ArrayList;
 
 // TODO: Gör så att klassen Nivå ärver Observable i paketet java.util. 
@@ -72,4 +74,6 @@ public class Nivå extends Observable {
 	public void hoppaÅt(Väderstreck väderstreck) {
 
 	}
+
+	
 }

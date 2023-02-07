@@ -1,6 +1,6 @@
 package labb3;
 
-import static labb3.modell.Väderstreck.*;
+import static D0010E.labb3.modell.Väderstreck.*;
 
 import java.awt.Color;
 import java.util.ArrayList;

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import labb3.modell.Gång;
 import labb3.modell.Nivå;
 import labb3.modell.Rum;
-import labb3.modell.Väderstreck;
+import D0010E.labb3.modell.Väderstreck;
 import labb3.verktyg.Punkt;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel. 

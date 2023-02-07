@@ -1,4 +1,4 @@
-package labb3.modell;
+package D0010E.labb3.modell;
 
 public enum Väderstreck {
 	NORR, ÖSTER, SÖDER, VÄSTER;
