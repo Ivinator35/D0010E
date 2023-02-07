@@ -95,7 +95,7 @@ public class Rum {
 		
 		gList.add(gång(från, riktningUtUrFrån, till, riktningInITill));
 		gList.add(gång(till, riktningInITill, från, riktningUtUrFrån));
-		
+		//hej
 	}
 }
 }
