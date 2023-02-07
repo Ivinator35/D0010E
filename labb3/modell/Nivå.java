@@ -72,7 +72,7 @@ public class Nivå extends Observable {
 	// angränsande rum efter att användaren tryckt på en tangent.)
 
 	public void hoppaÅt(Väderstreck väderstreck) {
-
+		
 	}
 
 	

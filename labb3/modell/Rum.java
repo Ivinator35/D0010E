@@ -4,6 +4,8 @@ import java.awt.Color;
 
 public class Rum {
 
+	ArrayList<Rum> gList = new ArrayList()<>;
+
 	// TODO: Lägg till tillståndsvariabler.
 
 	protected int bredd;
@@ -44,15 +46,6 @@ public class Rum {
 	}
 
 
-	public boolean finnsUtgångÅt(Väderstreck väderstreck){
-		if(finnsengång){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-
 	// TODO: Skriv "getters", metoder som returnerar tillståndsvariablernas
 	// värden.
 
@@ -63,7 +56,16 @@ public class Rum {
 	// som ska kontrollera om det från ett rum finns en utgång åt visst
 	// väderstreck.
 
+	public boolean finnsUtgångÅt(Väderstreck väderstreck){
+		
+		for(int i = 0; i < gList.length; i++){
+			if(gList[i].getRUUF == väderstreck){
+				return true;
+			}
+		return false;
+		
 
+	}
 	
 	// TODO: Skriv instansmetoden
 	//
@@ -72,16 +74,28 @@ public class Rum {
 	// returnerar den gång som leder från ett rum i riktning väderstreck. Om
 	// sådan gång saknas ska ett undantag kastas med lämpligt felmeddelande.
 
-	// TODO: Skrivklar metoden nedan som kopplar ihop två rum med en gång.
-
 	public Gång gångenÅt(Väderstreck väderstreck){
-		if(gång.getRIIT() == ){
-			
+
+		if(finnsUtgångÅt(väderstreck) == true){
+			for(int i = 0; i < gList.length; i++){
+				if(gList[i].getRUUF == väderstreck){
+					return gList[i];
+				}
+			}
+		}
+		else{
+			throw new Exception("Det finns ingen gång åt: " + väderstreck)
 		}
 	}
 
+	// TODO: Skrivklar metoden nedan som kopplar ihop två rum med en gång.
 
 	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
 			Rum till, Väderstreck riktningInITill) {
+		
+		gList.add(gång(från, riktningUtUrFrån, till, riktningInITill));
+		gList.add(gång(till, riktningInITill, från, riktningUtUrFrån));
+		
 	}
+}
 }
