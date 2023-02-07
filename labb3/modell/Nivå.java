@@ -73,7 +73,9 @@ public class Nivå extends Observable {
 
 	public void hoppaÅt(Väderstreck väderstreck) {
 		if(getPlayerPos.finnsUtgångÅt(väderstreck) == true){
-			setPlayerPos(getPlayerPos.)
+			Gång tempGång = getPlayerPos.gångenÅt(väderstreck);
+			Rum tempRum = tempGång.getTill();
+			setPlayerPos((tempRum.getÖvX / 2), (tempRum.getÖvY / 2) )
 
 		}
 	}
