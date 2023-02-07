@@ -17,6 +17,7 @@ public class Gång {
 		this.riktningUtUrFrån = riktningUtUrFrån;
 		this.till = till;
 		this.riktningInITill = riktningInITill;
+
 		// TODO: Tilldela tillståndsvariablerna parametervärdena.
 	}
 
