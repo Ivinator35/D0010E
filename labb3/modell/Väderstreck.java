@@ -1,7 +1,7 @@
 package labb3.modell;
 
 public enum Väderstreck {
-    NORR(index: 0), ÖSTER(index: 1), SÖDER(index: 2), VÄSTER(index: 3);
+    NORR(0), ÖSTER(1), SÖDER(2), VÄSTER(3);
 
     protected int value;
 

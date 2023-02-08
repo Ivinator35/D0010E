@@ -1,6 +1,7 @@
 package labb3.modell;
 
 import labb3.modell.Väderstreck;
+import labb3.verktyg.Punkt;
 
 import java.util.ArrayList;
 
@@ -11,14 +12,14 @@ public class Nivå extends java.util.Observable {
 
     protected Rum startrum;
 
-    protected Punkt playerPos = ((startrum.getÖvX / 2), (startrum.getÖvY / 2));
+    protected Punkt playerPos = new Punkt(startrum.getÖvX()/2, startrum.getÖvY()/2);
 
     protected int count = 0;
 
     // TODO: Lägg till tillståndsvariabler för att hålla reda på nivåns rum och
     // i vilket rum som användaren "är".
 
-    public Nivå(Rum startrum, ArrayList<Rum> rum) {
+    public Nivå(Rum startrum, ArrayList<Rum> rum) throws Exception {
 
         // TODO: Kopiera in startrum och rum in i tillståndsvariablerna.
 
@@ -28,8 +29,8 @@ public class Nivå extends java.util.Observable {
         // TODO: Kontrollera att startrum finns med i rum. Om inte, kasta
         // undantag med lämpligt felmeddelande.
 
-        for(int i = 0; i < rum.length; i++){
-            if(rum[i] == startrum){
+        for(int i = 0; i < rum.size(); i++){
+            if(rum.get(i) == startrum){
                 count++;
             }
         }
@@ -40,8 +41,8 @@ public class Nivå extends java.util.Observable {
         // TODO: Kontrollera att inga rum överlappar varandra. Om det ändå är
         // fallet, kasta undantag med lämpligt felmeddelande.
 
-        for(int i = 1; i < rum.length; i++){
-            if(rum[i].getÖvX == rum[i-1].getÖvX && rum[i].getÖvY == rum[i-1].getÖvY ){
+        for(int i = 1; i < rum.size(); i++){
+            if(rum.get(i).getÖvX() == rum.get(i-1).getÖvX() && rum.get(i).getÖvY() == rum.get(i-1).getÖvY()  ){
                 throw new Exception("Det finns rum i nivån som överlappar");
             }
         }

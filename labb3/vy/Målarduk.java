@@ -2,10 +2,11 @@ package labb3.vy;
 
 import java.awt.Graphics;
 
+import labb3.GlobalaKonstanter;
 import labb3.modell.Gång;
 import labb3.modell.Nivå;
 import labb3.modell.Rum;
-import D0010E.labb3.modell.Väderstreck;
+import labb3.modell.Väderstreck;
 import labb3.verktyg.Punkt;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel.
@@ -18,12 +19,15 @@ public class Målarduk extends javax.swing.JPanel{
         // TODO: Sätt bakgrundsfärgen på this till MARKFÄRG.
         // TODO: Anropa metoden setFocusable på this och med argumentet true.
         // Detta behövs för att lyssnaren i programmet ska reagera.
+        this.setBackground(GlobalaKonstanter.MARKFÄRG);
+        this.setFocusable(true);
     }
 
     // TODO: Lätt till @Override på metoden nedan.
     protected void paintComponent(Graphics g) {
         // TODO Lägg till ett anrop till paintComponent i omedelbara
         // överklassen (JPanel). Skicka med g som argument.
+        this.paintComponent(g);
 
         // TODO: Lägg till kod som ritar ut en grafisk vy av enNivå.
         //
