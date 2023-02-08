@@ -38,7 +38,9 @@ public class Målarduk extends javax.swing.JPanel{
     }
 
     private void ritaRum(Graphics g, Rum ettRum) {
+        g.setColor(ettRum.getGolvfärg());
 
+        g.clipRect(ettRum.getÖvX(), ettRum.getÖvY(), ettRum.getBredd(), ettRum.getHöjd());
     }
 
     private void ritaGångarFrånRum(Graphics g, Rum ettRum) {
@@ -58,6 +60,8 @@ public class Målarduk extends javax.swing.JPanel{
     }
 
     private void ritaMarkörFörVarAnvändarenÄr(Graphics g) {
+        Rum pos = this.enNivå.getPlayerPos();
+        g.drawOval(pos.getÖvX()+(pos.getBredd()/2), pos.getÖvY()+(pos.getHöjd()/2), 5, 5);
 
     }
 }

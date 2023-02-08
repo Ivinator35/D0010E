@@ -12,7 +12,7 @@ public class Nivå extends java.util.Observable {
 
     protected Rum startrum;
 
-    protected Punkt playerPos = new Punkt(startrum.getÖvX()/2, startrum.getÖvY()/2);
+    private Punkt playerPos = new Punkt(startrum.getÖvX()/2, startrum.getÖvY()/2);
 
     protected int count = 0;
 
