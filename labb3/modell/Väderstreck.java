@@ -1,31 +1,16 @@
 package D0010E.labb3.modell;
 
 public enum Väderstreck {
-	NORR, ÖSTER, SÖDER, VÄSTER;
+	NORR(index: 0), ÖSTER(index: 1), SÖDER(index: 2), VÄSTER(index: 3);
 
-	protected int tempIndex;
+	protected int value;
 
-	public Väderstreck(int tempIndex){
-		this.tempIndex = tempIndex;
+	public Väderstreck(int value){
+		this.value = value;
 	}
 
-	public int index(){
-
-		if(NORR){
-			tempIndex = 0;
-		}
-		else if(ÖSTER){
-			tempIndex = 1;
-		}
-		else if(SÖDER){
-			tempIndex = 2;
-		}
-		else if(VÄSTER){
-			tempIndex = 3;
-		}
-
-		return tempIndex;
-
+	int index(){
+		return this.value;
 	}
 	// TODO: Lägg till en konstruktor som tar ett heltal och sparar det i 
 	// en dold heltalsvariabel (en instansvariabel). Skriv en instansmetod

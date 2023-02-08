@@ -7,9 +7,11 @@ import java.util.ArrayList;
 // TODO: Gör så att klassen Nivå ärver Observable i paketet java.util. 
 public class Nivå extends Observable {
 
-	ArrayList<Rum> rList = new ArrayList()<>;
+	ArrayList<Rum> rum = new ArrayList()<>;
 
 	protected Rum startrum;
+
+	protected Punkt playerPos = ((startrum.getÖvX / 2), (startrum.getÖvY / 2));
 
 	protected int count = 0;
 
@@ -21,12 +23,12 @@ public class Nivå extends Observable {
 		// TODO: Kopiera in startrum och rum in i tillståndsvariablerna.
 
 		this.startrum = startrum;
-		this.rList = rum;
+		this.rum = rum;
 		
 		// TODO: Kontrollera att startrum finns med i rum. Om inte, kasta
 		// undantag med lämpligt felmeddelande.
 		
-		for(int i = 0; i < rList.length; i++){
+		for(int i = 0; i < rum.length; i++){
 			if(rum[i] == startrum){
 				count++;
 			}
@@ -38,7 +40,7 @@ public class Nivå extends Observable {
 		// TODO: Kontrollera att inga rum överlappar varandra. Om det ändå är
 		// fallet, kasta undantag med lämpligt felmeddelande.
 
-		for(int i = 1; i < rList.length; i++){
+		for(int i = 1; i < rum.length; i++){
 			if(rum[i].getÖvX == rum[i-1].getÖvX && rum[i].getÖvY == rum[i-1].getÖvY ){
 				throw new Exception("Det finns rum i nivån som överlappar");
 			}
@@ -55,11 +57,12 @@ public class Nivå extends Observable {
 	// användaren "är i".
 
 	public Rum getPlayerPos(){
-		for(int i = 0; i < rList.length; i++){
+		for(int i = 0; i < rum.length; i++){
 			if(playerPos.x == (rum[i].getÖvX / 2) && playerPos.y == (rum[i].getÖvY / 2)){
 				return rum[i];
 			}
 		}
+		throw new Exception("Det finns ingen spelare i nivån");
 	}
 
 	// TODO: Skriv klar instansmetoden hoppaÅt nedan så att den ändrar det rum
@@ -72,12 +75,12 @@ public class Nivå extends Observable {
 	// angränsande rum efter att användaren tryckt på en tangent.)
 
 	public void hoppaÅt(Väderstreck väderstreck) {
-		if(getPlayerPos.finnsUtgångÅt(väderstreck) == true){
+		try(getPlayerPos.finnsUtgångÅt(väderstreck) == true){
 			Gång tempGång = getPlayerPos.gångenÅt(väderstreck);
-			Rum tempRum = tempGång.getTill();
-			setPlayerPos((tempRum.getÖvX / 2), (tempRum.getÖvY / 2) )
-
+			Rum newRum = tempGång.getTill();
+			playerPos = ((newRum.getÖvX / 2), (newRum.getÖvY / 2) );
 		}
+		catch (Exception e) {}
 	}
 
 	
