@@ -61,9 +61,9 @@ public class Nivå extends java.util.Observable {
         int tempX = playerPos.x();
         int tempY = playerPos.y();
 
-        for(int i = 0; i < rum.length; i++){
-            if(tempX == (rum[i].getÖvX / 2) && tempY == (rum[i].getÖvY / 2)){
-                return rum[i];
+        for(int i = 0; i < rum.size(); i++){
+            if(tempX == (rum.get(i).getÖvX / 2) && tempY == (rum.get(i).getÖvY / 2)){
+                return rum.get(i);
             }
         }
         throw new Exception("Det finns ingen spelare i nivån");

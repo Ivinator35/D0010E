@@ -58,8 +58,8 @@ public class Rum {
 
 	public boolean finnsUtgångÅt(Väderstreck väderstreck){
 		
-		for(int i = 0; i < gList.length; i++){
-			if(gList[i].getRUUF == väderstreck){
+		for(int i = 0; i < gList.size(); i++){
+			if(gList.get(i).getRUUF == väderstreck){
 				return true;
 			}
 		return false;
@@ -77,9 +77,9 @@ public class Rum {
 	public Gång gångenÅt(Väderstreck väderstreck){
 
 		if(finnsUtgångÅt(väderstreck) == true){
-			for(int i = 0; i < gList.length; i++){
-				if(gList[i].getRUUF == väderstreck){
-					return gList[i];
+			for(int i = 0; i < gList.size(); i++){
+				if(gList.get(i).getRUUF == väderstreck){
+					return gList.get(i);
 				}
 			}
 		}
