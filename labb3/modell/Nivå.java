@@ -57,8 +57,11 @@ public class Nivå extends Observable {
 	// användaren "är i".
 
 	public Rum getPlayerPos(){
+		int tempX = playerPos.x();
+		int tempY = playerPos.y();
+
 		for(int i = 0; i < rum.length; i++){
-			if(playerPos.x == (rum[i].getÖvX / 2) && playerPos.y == (rum[i].getÖvY / 2)){
+			if(tempX == (rum[i].getÖvX / 2) && tempY == (rum[i].getÖvY / 2)){
 				return rum[i];
 			}
 		}
