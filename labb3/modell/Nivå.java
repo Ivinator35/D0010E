@@ -8,11 +8,11 @@ import java.util.ArrayList;
 // TODO: Gör så att klassen Nivå ärver Observable i paketet java.util.
 public class Nivå extends java.util.Observable {
 
-    ArrayList<Rum> rum = new ArrayList()<>;
+    public ArrayList<Rum> rum = new ArrayList<>();
 
     protected Rum startrum;
 
-    private Punkt playerPos = new Punkt(startrum.getÖvX()/2, startrum.getÖvY()/2);
+    private Punkt playerPos;
 
     protected int count = 0;
 
@@ -25,7 +25,7 @@ public class Nivå extends java.util.Observable {
 
         this.startrum = startrum;
         this.rum = rum;
-
+        this.playerPos = new Punkt(startrum.getÖvX()/2, startrum.getÖvY()/2);
         // TODO: Kontrollera att startrum finns med i rum. Om inte, kasta
         // undantag med lämpligt felmeddelande.
 
@@ -57,17 +57,18 @@ public class Nivå extends java.util.Observable {
     // TODO Skriv en instansmetod som returnerar en referens till det rum som
     // användaren "är i".
 
-    public Rum getPlayerPos(){
+    public Rum getPlayerPos() throws Exception {
         int tempX = playerPos.x();
         int tempY = playerPos.y();
 
         for(int i = 0; i < rum.size(); i++){
-            if(tempX == (rum.get(i).getÖvX / 2) && tempY == (rum.get(i).getÖvY / 2)){
+            if(tempX == (rum.get(i).getÖvX() / 2) && tempY == (rum.get(i).getÖvY() / 2)){
                 return rum.get(i);
             }
         }
         throw new Exception("Det finns ingen spelare i nivån");
     }
+
 
     // TODO: Skriv klar instansmetoden hoppaÅt nedan så att den ändrar det rum
     // som användaren "är i" om det är möjligt genom att följa en gång från
@@ -79,10 +80,12 @@ public class Nivå extends java.util.Observable {
     // angränsande rum efter att användaren tryckt på en tangent.)
 
     public void hoppaÅt(Väderstreck väderstreck) {
-        try(getPlayerPos.finnsUtgångÅt(väderstreck) == true){
-            Gång tempGång = getPlayerPos.gångenÅt(väderstreck);
-            Rum newRum = tempGång.getTill();
-            playerPos = ((newRum.getÖvX / 2), (newRum.getÖvY / 2) );
+        try{
+            if (getPlayerPos().finnsUtgångÅt(väderstreck)) {
+                Gång tempGång = getPlayerPos().gångenÅt(väderstreck);
+                Rum newRum = tempGång.getTill();
+                playerPos = new Punkt((newRum.getÖvX() / 2), (newRum.getÖvY() / 2) );
+            }
         }
 		catch (Exception e) {}
     }

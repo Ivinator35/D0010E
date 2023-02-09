@@ -1,6 +1,6 @@
 package labb3;
 
-import static D0010E.labb3.modell.Väderstreck.*;
+import static labb3.modell.Väderstreck.*;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import labb3.modell.*;
 
 public class Huvudprogram {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		ArrayList<Rum> rum = new ArrayList<Rum>();
 
@@ -41,10 +41,11 @@ public class Huvudprogram {
 		Rum.kopplaIhop(rum.get(7), ÖSTER, rum.get(6), VÄSTER);
 
 		// TODO: Skapa en nivå med argumenten rum.get(3) och rum.
-
+		Nivå nivå = new Nivå(rum.get(3), rum);
 		// TODO: Skapa en instans av klassen GUI och skicka med nivån ovan som
 		// argument. Man kan ha en referensvariabel som refererar till
 		// GUI-instansen men det är är inte nödvändigt.
+		new GUI(nivå);
 	}
 
 }

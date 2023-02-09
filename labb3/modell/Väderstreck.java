@@ -5,7 +5,7 @@ public enum Väderstreck {
 
     protected int value;
 
-    public Väderstreck(int value){
+    Väderstreck(int value){
         this.value = value;
     }
 

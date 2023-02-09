@@ -3,8 +3,9 @@ package labb3.kontroll;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import D0010E.labb3.modell.Väderstreck;
+import labb3.modell.Väderstreck;
 import labb3.modell.Nivå;
+import labb3.modell.Väderstreck;
 
 public class Tangentbordslyssnare implements KeyListener {
 	private Nivå enNivå;
