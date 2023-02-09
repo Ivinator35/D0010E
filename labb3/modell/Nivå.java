@@ -12,7 +12,7 @@ public class Nivå extends java.util.Observable {
 
     protected Rum startrum;
 
-    private Punkt playerPos;
+    private Rum playerPos;
 
     protected int count = 0;
 
@@ -25,7 +25,7 @@ public class Nivå extends java.util.Observable {
 
         this.startrum = startrum;
         this.rum = rum;
-        this.playerPos = new Punkt(startrum.getÖvX()/2, startrum.getÖvY()/2);
+        this.playerPos = startrum;
         // TODO: Kontrollera att startrum finns med i rum. Om inte, kasta
         // undantag med lämpligt felmeddelande.
 
@@ -58,15 +58,7 @@ public class Nivå extends java.util.Observable {
     // användaren "är i".
 
     public Rum getPlayerPos() throws Exception {
-        int tempX = playerPos.x();
-        int tempY = playerPos.y();
-
-        for(int i = 0; i < rum.size(); i++){
-            if(tempX == (rum.get(i).getÖvX() / 2) && tempY == (rum.get(i).getÖvY() / 2)){
-                return rum.get(i);
-            }
-        }
-        throw new Exception("Det finns ingen spelare i nivån");
+        return playerPos;
     }
 
 
@@ -81,14 +73,11 @@ public class Nivå extends java.util.Observable {
 
     public void hoppaÅt(Väderstreck väderstreck) {
         try{
-            if (getPlayerPos().finnsUtgångÅt(väderstreck)) {
-                Gång tempGång = getPlayerPos().gångenÅt(väderstreck);
-                Rum newRum = tempGång.getTill();
-                playerPos = new Punkt((newRum.getÖvX() / 2), (newRum.getÖvY() / 2) );
-            }
+                playerPos = playerPos.gångenÅt(väderstreck).getTill();
+                setChanged();
+                notifyObservers();
+            } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
-		catch (Exception e) {}
     }
-
-
 }

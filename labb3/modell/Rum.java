@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Rum {
 
-	static ArrayList<Gång> gList = new ArrayList();
+	public static ArrayList<Gång> gList = new ArrayList();
 
 	// TODO: Lägg till tillståndsvariabler.
 
@@ -20,6 +20,7 @@ public class Rum {
 		this.höjd = höjd;
 		this.övX = övX;
 		this.övY = övY;
+		this.golvfärg = golvfärg;
 
 		// TODO: Kopiera parametrarna in i tillståndsvariablerna. (övX,övY) är
 		// koordinaten för rummets övre vänstra hörn och lagras lämpligen som en
@@ -46,6 +47,9 @@ public class Rum {
 		return övY;
 	}
 
+	public ArrayList<Gång> getGList(){
+		return gList;
+	}
 
 	// TODO: Skriv "getters", metoder som returnerar tillståndsvariablernas
 	// värden.
@@ -95,8 +99,12 @@ public class Rum {
 
 	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
 								  Rum till, Väderstreck riktningInITill) {
-		gList.add(new Gång(från, riktningUtUrFrån, till, riktningInITill));
-		gList.add(new Gång(till, riktningInITill, från, riktningUtUrFrån));
+		Gång g1 = new Gång(från, riktningUtUrFrån, till, riktningInITill);
+		Gång g2 = new Gång(till, riktningInITill, från, riktningUtUrFrån);
+
+		från.gList.add(g1);
+		till.gList.add(g2);
+
 		//hej
 	}
 }

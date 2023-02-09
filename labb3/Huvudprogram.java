@@ -19,7 +19,6 @@ public class Huvudprogram {
 		// ordentligt. Lägg varje uppsättning (även den givna nedan) i separata
 		// metoder här i klassen. Såna bör vara deklarerade static för att kunna
 		// anropas från main (som ju också är static).
-
 		rum.add(new Rum(Color.RED, 75, 75, 25, 25));
 		rum.add(new Rum(Color.BLUE, 75, 50, 50, 150));
 		rum.add(new Rum(Color.MAGENTA, 100, 50, 175, 100));
