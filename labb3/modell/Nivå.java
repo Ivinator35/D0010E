@@ -76,8 +76,6 @@ public class Nivå extends java.util.Observable {
                 playerPos = playerPos.gångenÅt(väderstreck).getTill();
                 setChanged();
                 notifyObservers();
-            } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
+            } catch (Exception ex) { }
     }
 }

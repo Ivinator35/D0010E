@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Rum {
 
-	public static ArrayList<Gång> gList = new ArrayList();
+	public ArrayList<Gång> gList = new ArrayList();
 
 	// TODO: Lägg till tillståndsvariabler.
 
@@ -81,17 +81,13 @@ public class Rum {
 
 	public Gång gångenÅt(Väderstreck väderstreck) throws Exception {
 
-		if(finnsUtgångÅt(väderstreck) == true){
-			for(int i = 0; i < gList.size(); i++){
-				if(gList.get(i).getRUUF() == väderstreck){
-					return gList.get(i);
+			for (int i = 0; i < this.gList.size(); i++) {
+				if(this.gList.get(i).getRUUF() == väderstreck){
+					return this.gList.get(i);
 				}
 			}
-		}
-		else{
+
 			throw new Exception("Det finns ingen gång åt: " + väderstreck);
-		}
-		return null;
 	}
 
 
