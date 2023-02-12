@@ -41,14 +41,14 @@ public class Nivå extends java.util.Observable {
         // TODO: Kontrollera att inga rum överlappar varandra. Om det ändå är
         // fallet, kasta undantag med lämpligt felmeddelande.
 
-        for(int i = 1; i < rum.size(); i++){
+        /*for(int i = 1; i < rum.size(); i++){
 
             if((rum.get(i).getÖvY()) < (rum.get(i-1).getÖvY() - (rum.get(i-1).getÖvY() - rum.get(i-1).getHöjd()))
                 || (rum.get(i).getÖvY() - (rum.get(i).getÖvY()-rum.get(i).getHöjd())) > (rum.get(i-1).getÖvY())
                 || (rum.get(i).getÖvX() + rum.get(i).getBredd()) < (rum.get(i-1).getÖvX())
                 || (rum.get(i).getÖvX()) > (rum.get(i-1).getÖvX() + rum.get(i-1).getBredd()))
                 {throw new Exception("Det finns rum i nivån som överlappar");}
-        } 
+        } */
 
     }
 
