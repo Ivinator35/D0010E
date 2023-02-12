@@ -42,9 +42,14 @@ public class Nivå extends java.util.Observable {
         // fallet, kasta undantag med lämpligt felmeddelande.
 
         for(int i = 1; i < rum.size(); i++){
-            if(rum.get(i).getÖvX() == rum.get(i-1).getÖvX() && rum.get(i).getÖvY() == rum.get(i-1).getÖvY()  ){
-                throw new Exception("Det finns rum i nivån som överlappar");
-            }
+
+            if((rum.get(i).getÖvY()) < (rum.get(i-1).getÖvY() - (rum.get(i-1).getÖvY() - rum.get(i-1).getHöjd()))
+                || (rum.get(i).getÖvY() - (rum.get(i).getÖvY()-rum.get(i).getHöjd())) > (rum.get(i-1).getÖvY()))
+                {throw new Exception("Det finns rum i nivån som överlappar")}
+
+            if((rum.get(i).getÖvX() + rum.get(i).getBredd()) < (rum.get(i-1).getÖvX()) ||
+                (rum.get(i).getÖvX()) > (rum.get(i-1).getÖvX() + rum.get(i-1).getBredd()) )
+                {throw new Exception("Det finns rum i nivån som överlappar")}
         }
 
     }
@@ -52,7 +57,11 @@ public class Nivå extends java.util.Observable {
     // TODO: Skriv en instansmetod som returnerar alla rummen. Denna behöver
     // Målarduk för att veta vilka rum som finns på nivån och som ska ritas ut.
 
-
+    public Rum antalRum(){
+        for(int i = 0; i < rum.size(); i++){
+           return enNivå.rum.get(i); 
+        }
+    }
 
     // TODO Skriv en instansmetod som returnerar en referens till det rum som
     // användaren "är i".
