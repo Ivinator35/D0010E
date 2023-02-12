@@ -4,7 +4,6 @@ import labb3.modell.Väderstreck;
 import labb3.verktyg.Punkt;
 
 import java.util.ArrayList;
-
 // TODO: Gör så att klassen Nivå ärver Observable i paketet java.util.
 public class Nivå extends java.util.Observable {
 
@@ -41,16 +40,19 @@ public class Nivå extends java.util.Observable {
         // TODO: Kontrollera att inga rum överlappar varandra. Om det ändå är
         // fallet, kasta undantag med lämpligt felmeddelande.
 
-        /*for(int i = 1; i < rum.size(); i++){
+        for(int i = 1; i < rum.size(); i++){
 
-            if((rum.get(i).getÖvY()) < (rum.get(i-1).getÖvY() - (rum.get(i-1).getÖvY() - rum.get(i-1).getHöjd()))
-                || (rum.get(i).getÖvY() - (rum.get(i).getÖvY()-rum.get(i).getHöjd())) > (rum.get(i-1).getÖvY())
-                || (rum.get(i).getÖvX() + rum.get(i).getBredd()) < (rum.get(i-1).getÖvX())
-                || (rum.get(i).getÖvX()) > (rum.get(i-1).getÖvX() + rum.get(i-1).getBredd()))
-                {throw new Exception("Det finns rum i nivån som överlappar");}
-        } */
+            if(rum.get(i-1).getÖvY() > (rum.get(i).getÖvY() - rum.get(i).getHöjd()) 
+                && rum.get(i-1).getÖvY() < (rum.get(i).getÖvY()))
+            { throw new Exception("Det finns rum i nivån som överlappar");}
+
+            if(rum.get(i-1).getÖvX() < (rum.get(i).getÖvX() + rum.get(i).getBredd()) 
+                && rum.get(i-1).getÖvX() > (rum.get(i).getÖvX()))
+            { throw new Exception("Det finns rum i nivån som överlappar");}
+        } 
 
     }
+
 
     // TODO: Skriv en instansmetod som returnerar alla rummen. Denna behöver
     // Målarduk för att veta vilka rum som finns på nivån och som ska ritas ut.
