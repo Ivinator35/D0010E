@@ -49,6 +49,14 @@ public class Nivå extends java.util.Observable {
             if(rum.get(i-1).getÖvX() < (rum.get(i).getÖvX() + rum.get(i).getBredd()) 
                 && rum.get(i-1).getÖvX() > (rum.get(i).getÖvX()))
             { throw new Exception("Det finns rum i nivån som överlappar");}
+
+             if(rum.get(i).getÖvY() > (rum.get(i-1).getÖvY() - rum.get(i-1).getHöjd()) 
+                && rum.get(i).getÖvY() < (rum.get(i-1).getÖvY()))
+            { throw new Exception("Det finns rum i nivån som överlappar");}
+
+            if(rum.get(i).getÖvX() < (rum.get(i-1).getÖvX() + rum.get(i-1).getBredd()) 
+                && rum.get(i).getÖvX() > (rum.get(i-1).getÖvX()))
+            { throw new Exception("Det finns rum i nivån som överlappar");}
         } 
 
     }
