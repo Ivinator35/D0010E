@@ -94,7 +94,14 @@ public class Rum {
 	// TODO: Skrivklar metoden nedan som kopplar ihop två rum med en gång.
 
 	public static void kopplaIhop(Rum från, Väderstreck riktningUtUrFrån,
-								  Rum till, Väderstreck riktningInITill) {
+								  Rum till, Väderstreck riktningInITill) throws Exception{
+
+		if(från.equals(till)){
+			throw new Exception("Till och Från är samma rum");
+		}
+		if(från.finnsUtgångÅt(riktningUtUrFrån) || till.finnsUtgångÅt(riktningInITill)){
+			throw new Exception("Finns redan en gång där");
+		}
 		Gång g1 = new Gång(från, riktningUtUrFrån, till, riktningInITill);
 		Gång g2 = new Gång(till, riktningInITill, från, riktningUtUrFrån);
 
