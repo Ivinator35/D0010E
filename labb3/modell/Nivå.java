@@ -42,7 +42,9 @@ public class Nivå extends java.util.Observable {
 
         for(int i = 0; i < rum.size(); i++){
             for (int j = 0; j < this.rum.size(); j++) {
-                System.out.println("Kollar rum: " + i + " och rum: " +j);
+                if(i == j){
+                    continue;
+                }
                 if(kollaÖverlapp(rum.get(i), rum.get(j))){
                     throw new Exception("Det finns rum som överlappar");
                 }
@@ -64,7 +66,7 @@ public class Nivå extends java.util.Observable {
         }
 
         // 1 ovanför 2 eller 2 ovanför 1
-        if (p1.y() - r1.getHöjd() < p2.y() || p2.y() - r2.getHöjd() < p1.y()) {
+        if (p1.y() + r1.getHöjd() < p2.y() || p2.y() + r2.getHöjd() < p1.y()) {
             return false;
         }
 
