@@ -19,6 +19,22 @@ public class Huvudprogram {
 		// ordentligt. Lägg varje uppsättning (även den givna nedan) i separata
 		// metoder här i klassen. Såna bör vara deklarerade static för att kunna
 		// anropas från main (som ju också är static).
+
+
+		//Vår Nivå
+/*		rum.add(new Rum(Color.WHITE, 75, 75, 25, 25));
+		rum.add(new Rum(Color.BLUE, 75, 50, 50, 150));
+		rum.add(new Rum(Color.RED, 70, 50, 195, 100));
+		rum.add(new Rum(Color.YELLOW, 100, 75, 200, 200));
+		rum.add(new Rum(Color.PINK, 100, 75, 325, 50));
+
+
+		Rum.kopplaIhop(rum.get(0), SÖDER, rum.get(1), NORR);
+		Rum.kopplaIhop(rum.get(0), ÖSTER, rum.get(2), NORR);
+		Rum.kopplaIhop(rum.get(1), SÖDER, rum.get(3), VÄSTER);
+		Rum.kopplaIhop(rum.get(2), SÖDER, rum.get(3), NORR);
+		Rum.kopplaIhop(rum.get(4), VÄSTER, rum.get(2), ÖSTER);*/
+		//Håkans Nivå
 		rum.add(new Rum(Color.RED, 75, 75, 25, 25));
 		rum.add(new Rum(Color.BLUE, 75, 50, 50, 150));
 		rum.add(new Rum(Color.MAGENTA, 100, 50, 175, 100));
@@ -38,6 +54,7 @@ public class Huvudprogram {
 		Rum.kopplaIhop(rum.get(3), ÖSTER, rum.get(5), VÄSTER);
 		Rum.kopplaIhop(rum.get(3), SÖDER, rum.get(6), NORR);
 		Rum.kopplaIhop(rum.get(7), ÖSTER, rum.get(6), VÄSTER);
+
 
 		// TODO: Skapa en nivå med argumenten rum.get(3) och rum.
 		Nivå nivå = new Nivå(rum.get(3), rum);
