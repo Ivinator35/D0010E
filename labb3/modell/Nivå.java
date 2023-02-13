@@ -1,9 +1,14 @@
+/*
+Isak Ahlberg, isaahl-2
+Ivar Wirgén, ivawir-2
+ */
 package labb3.modell;
 
 import labb3.modell.Väderstreck;
 import labb3.verktyg.Punkt;
 
 import java.util.ArrayList;
+
 // TODO: Gör så att klassen Nivå ärver Observable i paketet java.util.
 public class Nivå extends java.util.Observable {
 
@@ -28,24 +33,24 @@ public class Nivå extends java.util.Observable {
         // TODO: Kontrollera att startrum finns med i rum. Om inte, kasta
         // undantag med lämpligt felmeddelande.
 
-        for(int i = 0; i < rum.size(); i++){
-            if(rum.get(i) == startrum){
+        for (int i = 0; i < rum.size(); i++) {
+            if (rum.get(i) == startrum) {
                 count++;
             }
         }
-        if(count <= 0){
+        if (count <= 0) {
             throw new Exception("Start rummet finns inte i nivån");
         }
 
         // TODO: Kontrollera att inga rum överlappar varandra. Om det ändå är
         // fallet, kasta undantag med lämpligt felmeddelande.
 
-        for(int i = 0; i < rum.size(); i++){
+        for (int i = 0; i < rum.size(); i++) {
             for (int j = 0; j < this.rum.size(); j++) {
-                if(i == j){
+                if (i == j) {
                     continue;
                 }
-                if(kollaÖverlapp(rum.get(i), rum.get(j))){
+                if (kollaÖverlapp(rum.get(i), rum.get(j))) {
                     throw new Exception("Det finns rum som överlappar");
                 }
             }
@@ -57,7 +62,7 @@ public class Nivå extends java.util.Observable {
     // TODO: Skriv en instansmetod som returnerar alla rummen. Denna behöver
     // Målarduk för att veta vilka rum som finns på nivån och som ska ritas ut.
 
-    private boolean kollaÖverlapp(Rum r1, Rum r2){
+    private boolean kollaÖverlapp(Rum r1, Rum r2) {
         Punkt p1 = new Punkt(r1.getÖvX(), r1.getÖvY());
         Punkt p2 = new Punkt(r2.getÖvX(), r2.getÖvY());
 
@@ -72,9 +77,10 @@ public class Nivå extends java.util.Observable {
 
         return true;
     }
-    public ArrayList<Rum> antalRum(){
-        for(int i = 0; i < rum.size(); i++){
-           return this.rum;
+
+    public ArrayList<Rum> antalRum() {
+        for (int i = 0; i < rum.size(); i++) {
+            return this.rum;
         }
         return null;
     }
@@ -97,10 +103,11 @@ public class Nivå extends java.util.Observable {
     // angränsande rum efter att användaren tryckt på en tangent.)
 
     public void hoppaÅt(Väderstreck väderstreck) {
-        try{
-                playerPos = playerPos.gångenÅt(väderstreck).getTill();
-                setChanged();
-                notifyObservers();
-            } catch (Exception ex) { }
+        try {
+            playerPos = playerPos.gångenÅt(väderstreck).getTill();
+            setChanged();
+            notifyObservers();
+        } catch (Exception ex) {
+        }
     }
 }

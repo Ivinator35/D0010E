@@ -1,3 +1,8 @@
+/*
+Isak Ahlberg, isaahl-2
+Ivar Wirgén, ivawir-2
+ */
+
 package labb3.vy;
 
 import java.awt.*;
@@ -9,6 +14,7 @@ import labb3.modell.Rum;
 
 import static labb3.GlobalaKonstanter.*;
 import static labb3.modell.Väderstreck.*;
+
 import labb3.modell.Väderstreck;
 import labb3.verktyg.Grafik;
 import labb3.verktyg.Punkt;
@@ -16,7 +22,7 @@ import labb3.verktyg.Punkt;
 import javax.swing.*;
 
 // TODO: Ändra nästa rad så att en Målarduk "är-en" JPanel.
-public class Målarduk extends javax.swing.JPanel{
+public class Målarduk extends javax.swing.JPanel {
 
     private final Nivå enNivå;
 
@@ -60,9 +66,9 @@ public class Målarduk extends javax.swing.JPanel{
 
     private void ritaRum(Graphics g, Rum ettRum) {
         g.setColor(Color.BLACK);
-        g.fillRect(ettRum.getÖvX()-VÄGGTJOCKLEK, ettRum.getÖvY()-VÄGGTJOCKLEK,
-                ettRum.getBredd()+VÄGGTJOCKLEK*2,
-                ettRum.getHöjd() + VÄGGTJOCKLEK*2);
+        g.fillRect(ettRum.getÖvX() - VÄGGTJOCKLEK, ettRum.getÖvY() - VÄGGTJOCKLEK,
+                ettRum.getBredd() + VÄGGTJOCKLEK * 2,
+                ettRum.getHöjd() + VÄGGTJOCKLEK * 2);
 
         g.setColor(ettRum.getGolvfärg());
         g.fillRect(ettRum.getÖvX(), ettRum.getÖvY(), ettRum.getBredd(), ettRum.getHöjd());
@@ -75,15 +81,15 @@ public class Målarduk extends javax.swing.JPanel{
     }
 
     private Punkt baspunkt(Rum ettRum, Väderstreck enRiktning) {
-        switch (enRiktning){
+        switch (enRiktning) {
             case NORR:
-                return new Punkt(ettRum.getÖvX()+(ettRum.getBredd()/2), ettRum.getÖvY());
+                return new Punkt(ettRum.getÖvX() + (ettRum.getBredd() / 2), ettRum.getÖvY());
             case ÖSTER:
-                return new Punkt(ettRum.getÖvX()+ettRum.getBredd(), ettRum.getÖvY()+(ettRum.getHöjd()/2));
+                return new Punkt(ettRum.getÖvX() + ettRum.getBredd(), ettRum.getÖvY() + (ettRum.getHöjd() / 2));
             case SÖDER:
-                return new Punkt(ettRum.getÖvX()+(ettRum.getBredd()/2), ettRum.getÖvY()+ettRum.getHöjd());
+                return new Punkt(ettRum.getÖvX() + (ettRum.getBredd() / 2), ettRum.getÖvY() + ettRum.getHöjd());
             case VÄSTER:
-                return new Punkt(ettRum.getÖvX(), ettRum.getÖvY()+(ettRum.getHöjd()/2));
+                return new Punkt(ettRum.getÖvX(), ettRum.getÖvY() + (ettRum.getHöjd() / 2));
             default:
                 return null;
 
@@ -92,19 +98,19 @@ public class Målarduk extends javax.swing.JPanel{
 
     private Punkt pivotpunkt(Rum ettRum, Väderstreck enRiktning) {
 
-        switch (enRiktning){
+        switch (enRiktning) {
             case NORR:
-                return new Punkt(ettRum.getÖvX()+(ettRum.getBredd()/2),
-                        ettRum.getÖvY()-VÄGGTJOCKLEK-HALV_VÄGGTJOCKLEK);
+                return new Punkt(ettRum.getÖvX() + (ettRum.getBredd() / 2),
+                        ettRum.getÖvY() - VÄGGTJOCKLEK - HALV_VÄGGTJOCKLEK);
             case ÖSTER:
-                return new Punkt(ettRum.getÖvX()+ettRum.getBredd()+VÄGGTJOCKLEK+HALV_VÄGGTJOCKLEK,
-                        ettRum.getÖvY()+(ettRum.getHöjd()/2));
+                return new Punkt(ettRum.getÖvX() + ettRum.getBredd() + VÄGGTJOCKLEK + HALV_VÄGGTJOCKLEK,
+                        ettRum.getÖvY() + (ettRum.getHöjd() / 2));
             case SÖDER:
-                return new Punkt(ettRum.getÖvX()+(ettRum.getBredd()/2),
-                        ettRum.getÖvY()+ettRum.getHöjd()+VÄGGTJOCKLEK+HALV_VÄGGTJOCKLEK);
+                return new Punkt(ettRum.getÖvX() + (ettRum.getBredd() / 2),
+                        ettRum.getÖvY() + ettRum.getHöjd() + VÄGGTJOCKLEK + HALV_VÄGGTJOCKLEK);
             case VÄSTER:
-                return new Punkt(ettRum.getÖvX()-VÄGGTJOCKLEK-HALV_VÄGGTJOCKLEK,
-                        ettRum.getÖvY()+(ettRum.getHöjd()/2));
+                return new Punkt(ettRum.getÖvX() - VÄGGTJOCKLEK - HALV_VÄGGTJOCKLEK,
+                        ettRum.getÖvY() + (ettRum.getHöjd() / 2));
             default:
                 return null;
 
@@ -128,7 +134,7 @@ public class Målarduk extends javax.swing.JPanel{
     private void ritaMarkörFörVarAnvändarenÄr(Graphics g) throws Exception {
         Rum pos = this.enNivå.getPlayerPos();
         g.setColor(Color.BLACK);
-        g.fillOval(pos.getÖvX()+(pos.getBredd()/2), pos.getÖvY()+(pos.getHöjd()/2), 10, 10);
+        g.fillOval(pos.getÖvX() + (pos.getBredd() / 2), pos.getÖvY() + (pos.getHöjd() / 2), 10, 10);
 
     }
 

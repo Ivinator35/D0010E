@@ -1,3 +1,7 @@
+/*
+Isak Ahlberg, isaahl-2
+Ivar Wirgén, ivawir-2
+ */
 package labb3.modell;
 
 public class Gång {
@@ -21,19 +25,19 @@ public class Gång {
         // TODO: Tilldela tillståndsvariablerna parametervärdena.
     }
 
-    public Rum getFrån(){
+    public Rum getFrån() {
         return från;
     }
 
-    public Väderstreck getRUUF(){
+    public Väderstreck getRUUF() {
         return riktningUtUrFrån;
     }
 
-    public Rum getTill(){
+    public Rum getTill() {
         return till;
     }
 
-    public Väderstreck getRIIT(){
+    public Väderstreck getRIIT() {
         return riktningInITill;
     }
     // TODO: Lägg till instansmetoder som returnerar tillståndsvariablernas

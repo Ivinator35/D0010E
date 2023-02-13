@@ -1,3 +1,7 @@
+/*
+Isak Ahlberg, isaahl-2
+Ivar Wirgén, ivawir-2
+ */
 package labb3.modell;
 
 public enum Väderstreck {
@@ -5,11 +9,11 @@ public enum Väderstreck {
 
     protected int value;
 
-    Väderstreck(int value){
+    Väderstreck(int value) {
         this.value = value;
     }
 
-    int index(){
+    int index() {
         return this.value;
     }
     // TODO: Lägg till en konstruktor som tar ett heltal och sparar det i
